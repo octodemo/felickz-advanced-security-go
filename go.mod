@@ -1,4 +1,4 @@
-module github.com/octodemo/felickz-advanced-security-go-private
+module github.com/securingdev/octodemo-go-package-test
 
 go 1.17
 
