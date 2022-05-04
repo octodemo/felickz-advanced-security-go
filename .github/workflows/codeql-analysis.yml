@@ -50,10 +50,15 @@ jobs:
         # Prefix the list here with "+" to use these queries and those in the config file.
         # queries: ./path/to/local/query, your-org/your-repo/queries@main
 
-    # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
-    # If this step fails, then you should remove it and run the build manually (see below)
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+    #  REMOVING: 2022-04-30T08:37:14.1788956Z None of the languages in this project require extra build steps
+    #- name: Autobuild
+    #  uses: github/codeql-action/autobuild@v2
+    
+    # Autobuilder was built with go1.15.15, environment has go1.17.9 Should probably be running actions/setup-go to ensure they are running with the go version their project expects.
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.15
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
