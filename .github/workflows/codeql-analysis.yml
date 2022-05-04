@@ -79,4 +79,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         #ex: 2022-05-01T22:50:51.5782478Z Processing sarif files: ["/home/runner/work/felickz-ghas-bootcamp/results/python.sarif"]        
-        path: ${{ github.workspace }}/results/*.sarif
+        path: ${{ github.workspace }}/../results/*.sarif
