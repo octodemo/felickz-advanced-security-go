@@ -1,4 +1,4 @@
-module github.com/octodemo/felickz-advanced-security-go
+module github.com/octodemo/advanced-security-go
 
 go 1.17
 
