@@ -20,6 +20,9 @@ on:
   schedule:
     - cron: '30 8 * * 6'
   workflow_dispatch:
+  
+env:
+  CODEQL_EXTRACTOR_GO_BUILD_TRACING: on
 
 jobs:
   analyze:
@@ -59,7 +62,7 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v3
       with:
-        go-version: 1.15
+        go-version: 1.18.x
 
     # ℹ️ Command-line programs to run using the OS shell.
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
@@ -68,15 +71,15 @@ jobs:
     #    and modify them (or add more) to build your code if your project
     #    uses a compiled language
 
-    #- run: |
-    #   make bootstrap
-    #   make release
+    - run: |
+       go build
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
 
-    - name: Upload Artifacts to Workflow
-      uses: actions/upload-artifact@v3
-      with:
-        #ex: 2022-05-01T22:50:51.5782478Z Processing sarif files: ["/home/runner/work/felickz-ghas-bootcamp/results/python.sarif"]        
-        path: ${{ github.workspace }}/../results/*.sarif
+    #- name: Upload Artifacts to Workflow
+    #  uses: actions/upload-artifact@v3
+    #  with:
+    #    #ex: 2022-05-01T22:50:51.5782478Z Processing sarif files: ["/home/runner/work/felickz-ghas-bootcamp/results/python.sarif"]        
+    #    # cannot use .. 
+    #    path: ${{ github.workspace }}/../results/*.sarif
