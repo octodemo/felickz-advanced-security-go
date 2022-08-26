@@ -21,8 +21,8 @@ on:
     - cron: '30 8 * * 6'
   workflow_dispatch:
   
-env:
-  CODEQL_EXTRACTOR_GO_BUILD_TRACING: on
+#env:
+#  CODEQL_EXTRACTOR_GO_BUILD_TRACING: on
 
 jobs:
   analyze:
@@ -71,8 +71,8 @@ jobs:
     #    and modify them (or add more) to build your code if your project
     #    uses a compiled language
 
-    - run: |
-       go build
+    #- run: |
+    #   go build
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
